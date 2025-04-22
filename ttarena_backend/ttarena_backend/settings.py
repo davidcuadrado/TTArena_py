@@ -11,9 +11,13 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import subprocess
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Dynamically get the Windows host IP from WSL
+windows_host_ip = subprocess.check_output("ip route | grep default | awk '{print $3}'", shell=True).decode().strip()
 
 
 # Quick-start development settings - unsuitable for production
@@ -73,11 +77,16 @@ WSGI_APPLICATION = 'ttarena_backend.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "ttarena_database",
+        "USER": "ttarena_admin",
+        "PASSWORD": "ttarena_password",
+        "HOST": windows_host_ip,
+        "PORT": "3306",
     }
 }
+
 
 
 # Password validation
