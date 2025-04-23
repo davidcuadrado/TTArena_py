@@ -1,22 +1,14 @@
 from django.shortcuts import render, HttpResponse
 
-html_base = """
-<h1> TT ARENA </h1>
-<ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="about/">About</a></li>
-</ul>    
-"""
 
-# Create your views here.
 def home(request):
-    return HttpResponse(html_base + """ 
-        <h2>Landing page<h2> 
-        <p>Welcome to TT Arena</p>
-    """)
+    return render(request, "core/home.html")
 
 def about(request):
-    return HttpResponse(html_base + """ 
-            <h2>About TTArena<h2>
-            <p>An online Tabletop Arena game based on WoW</p>
-        """)
+    return render(request, "core/about.html")
+
+def overview(request):
+    return render(request, "core/overview.html")
+
+def contact(request):
+    return render(request, "core/contact.html")
