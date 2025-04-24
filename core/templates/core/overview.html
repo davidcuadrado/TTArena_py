@@ -2,15 +2,34 @@
 
 {% block title %}Overview{% endblock %}
 
-{% block background %}{% load static %}{% static 'core/img/home-bg.jpg' %}{% endblock %}
+{% block background %}{% load static %}{% static 'core/img/overview-bg.jpg' %}{% endblock %}
 
 {% block headers %}
-<h1>TT Arena</h1>
-              <span class="subheading">The Tabletop WoW Arena Project</span>
+<h1>Overview</h1>
+<span class="subheading">TT Arena: The Tabletop WoW Arena Project</span>
 {% endblock %}
 
 {% block content %}
-<h2>Introduction to TTArena</h2>
-            <p>This is the page to explain the rules.</p>
+<div class="row project">
+    <!-- Block 1-->
+    <div class="col-lg-3 col-md-4 offset-lg-1">
+        <img class="img-fluid" src="{% static 'core/img/home-bg.jpg' %}" alt="">
+    </div>
+    <div class="col-lg-7 col-md-8">
+        <h2 class="section-heading title">Introduction to TT Arena</h2>
+        <p>Make yourself comfortable and <a href="http://google.com">check the game rules</a></p>
+    </div>
+
+    <!-- Block 2 -->
+
+    <div class="col-lg-3 col-md-4 offset-lg-1">
+        <img class="img-fluid" src="{% static 'core/img/about-bg.jpg' %}" alt="">
+    </div>
+    <div class="col-lg-7 col-md-8">
+        <h2 class="section-heading title">Let's jump into the frail! </h2>
+        <p>Check our <a href="http://google.com">first steps guide</a></p>
+    </div>
+</div>
+
 {% endblock %}
 

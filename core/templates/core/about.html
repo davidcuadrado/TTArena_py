@@ -5,12 +5,21 @@
 {% block background %}{% load static %}{% static 'core/img/about-bg.jpg' %}{% endblock %}
 
 {% block headers %}
-<h1>TT Arena</h1>
-              <span class="subheading">The Tabletop WoW Arena Project</span>
+<h1>About</h1>
+<span class="subheading">TT Arena</span>
 {% endblock %}
 
 {% block content %}
-<h2>About TTArena</h2>
-            <p>An online Tabletop Arena game based on WoW</p>
+<div class="row">
+<div class="col-lg-3 col-md-4 offset-lg-1">
+    <img class="img-fluid avatar" src="{% static 'core/img/kiri_avatar.jpg' %}" alt="">
+</div>
+<div class="col-lg-7 col-md-8">
+    <h2 class="section-heading">TT Arena</h2>
+    <p>Welcome to TT Arena – a turn-based, tactical online game inspired by the epic battles of World of Warcraft and the strategic depth of tabletop RPGs. Jump into arena matches where timing, positioning and clever use of abilities determine victory.</p>
+    <p>In TT Arena, players control custom-built heroes from a variety of classes and specializations, each with unique abilities, strengths, and synergies. Combat unfolds on detailed battle maps, where every turn matters and teamwork is key. Whether you are battling on the 3v3 arena or jump into the battlegrounds, success requires both strategic foresight and quick adaptation</p>
+    <p>Craft your character. Choose your talents. Master your tactics. Enter the arena and fight for glory.</p>
+</div>
+</div>
 {% endblock %}
 
