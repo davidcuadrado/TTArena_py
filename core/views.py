@@ -7,8 +7,5 @@ def home(request):
 def about(request):
     return render(request, "core/about.html")
 
-def overview(request):
-    return render(request, "core/overview.html")
-
 def contact(request):
     return render(request, "core/contact.html")
