@@ -10,26 +10,27 @@
 {% endblock %}
 
 {% block content %}
-<div class="row project">
-    <!-- Block 1-->
-    <div class="col-lg-3 col-md-4 offset-lg-1">
-        <img class="img-fluid" src="{% static 'core/img/home-bg.jpg' %}" alt="">
-    </div>
-    <div class="col-lg-7 col-md-8">
-        <h2 class="section-heading title">Introduction to TT Arena</h2>
-        <p>Make yourself comfortable and <a href="http://google.com">check the game rules</a></p>
-    </div>
+    <div class="row project">
+        <div class="col-lg-3 col-md-4 offset-lg-1">
+            <img class="img-fluid" src="{% static 'core/img/about-bg.jpg' %}" alt="">
+        </div>
+            <div class="col-lg-7 col-md-8">
+                <h2 class="section-heading title">Let's jump into the fray! </h2>
+                <p>Check our <a href="http://google.com">first steps guide</a></p>
+            </div>
 
-    <!-- Block 2 -->
+        {% for project in projects %}
 
-    <div class="col-lg-3 col-md-4 offset-lg-1">
-        <img class="img-fluid" src="{% static 'core/img/about-bg.jpg' %}" alt="">
-    </div>
-    <div class="col-lg-7 col-md-8">
-        <h2 class="section-heading title">Let's jump into the fray! </h2>
-        <p>Check our <a href="http://google.com">first steps guide</a></p>
-    </div>
-</div>
+                <!-- Block 1-->
+                <div class="col-lg-3 col-md-4 offset-lg-1">
+                    <img class="img-fluid" src="{{project.image.url}}" alt="">
+                </div>
+                <div class="col-lg-7 col-md-8">
+                    <h2 class="section-heading title">{{project.title}}</h2>
+                    <p>{{project.description}}</p>
+                </div>
 
+        {% endfor %}
+    </div>
 {% endblock %}
 
