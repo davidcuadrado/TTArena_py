@@ -1,25 +1,28 @@
 {% extends 'core/base.html' %}
 
+{% load static %}
+
 {% block title %}About{% endblock %}
 
-{% block background %}{% load static %}{% static 'core/img/about-bg.jpg' %}{% endblock %}
-
-{% block headers %}
-<h1>About</h1>
-<span class="subheading">TT Arena</span>
-{% endblock %}
-
 {% block content %}
-<div class="row">
-<div class="col-lg-3 col-md-4 offset-lg-1">
-    <img class="img-fluid avatar" src="{% static 'core/img/kiri_avatar.jpg' %}" alt="">
-</div>
-<div class="col-lg-7 col-md-8">
-    <h2 class="section-heading">TT Arena</h2>
-    <p>Welcome to TT Arena – a turn-based, tactical online game inspired by the epic battles of World of Warcraft and the strategic depth of tabletop RPGs. Jump into arena matches where timing, positioning and clever use of abilities determine victory.</p>
-    <p>In TT Arena, players control custom-built heroes from a variety of classes and specializations, each with unique abilities, strengths, and synergies. Combat unfolds on detailed battle maps, where every turn matters and teamwork is key. Whether you are battling on the 3v3 arena or jump into the battlegrounds, success requires both strategic foresight and quick adaptation</p>
-    <p>Craft your character. Choose your talents. Master your tactics. Enter the arena and fight for glory.</p>
-</div>
-</div>
+<section class="page-section about-heading">
+  <div class="container">
+    <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{% static 'core/img/about.jpg' %}" alt="">
+    <div class="about-heading-content">
+      <div class="row">
+        <div class="col-xl-9 col-lg-10 mx-auto">
+          <div class="bg-faded rounded p-5">
+            <h2 class="section-heading mb-4">
+              <span class="section-heading-upper">About TT Arena</span>
+              <span class="section-heading-lower">Our project</span>
+            </h2>
+            <p>Welcome to TT Arena – a turn-based, tactical online game inspired by the epic battles of World of Warcraft and the strategic depth of tabletop RPGs. Jump into arena matches where timing, positioning and clever use of abilities determine victory.</p>
+            <p>In TT Arena, players control custom-built heroes from a variety of classes and specializations, each with unique abilities, strengths, and synergies. Combat unfolds on detailed battle maps, where every turn matters and teamwork is key. Whether you are battling on the 3v3 arena or jump into the battlegrounds, success requires both strategic foresight and quick adaptation</p>
+            <p>Craft your character. Choose your talents. Master your tactics. Enter the arena and fight for glory.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}
-

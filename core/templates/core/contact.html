@@ -1,21 +1,53 @@
 {% extends 'core/base.html' %}
 
-{% block title %}Contact{% endblock %}
+{% load static %}
 
-{% block background %}{% load  static %}{% static 'core/img/carnage-bg.jpg' %}{% endblock %}
-
-{% block headers %}
-<h1>Contact</h1>
-<span class="subheading">TT Arena</span>
-{% endblock %}
+{% block title %}Contacto{% endblock %}
 
 {% block content %}
-<div class="row">
-<div class="col-lg-8 col-md-10 mx-auto">
-          <h2>Want to share with TTArena?</h2>
-          <br>
-          <p>Contact the development team at ttarena@gmail(dot)com </p>
-          <p>Feel free to suggest improvements at our <a href="https://github.com/davidcuadrado/TTArena_py">GitHub repository</a></p>
+<section class="page-section about-heading">
+  <div class="container">
+    <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{% static 'core/img/contact.jpg' %}" alt="">
+    <div class="about-heading-content">
+      <div class="row">
+        <div class="col-xl-9 col-lg-10 mx-auto">
+          <div class="bg-faded rounded p-5">
+            <h2 class="section-heading mb-4">
+              <span class="section-heading-upper">Envíanos tus dudas</span>
+              <span class="section-heading-lower">Contacto</span>
+            </h2>
+            <!-- Formulario de contacto -->
+            <form>
+                <div class="form-group">
+                    <label>Nombre *</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control">
+                    </div>
+                    <ul class="errorlist">
+                        <li>El email no es correcto.</li>
+                    </ul>
+                </div>
+                <div class="form-group">
+                    <label>Mensaje *</label>
+                    <div class="input-group">
+                        <textarea class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <input type="submit" class="btn btn-primary btn-block py-2" value="Enviar">
+                </div>
+            </form>
+            <!-- Fin formulario de contacto -->
+          </div>
         </div>
-</div>
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}
