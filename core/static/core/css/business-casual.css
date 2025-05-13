@@ -4,6 +4,9 @@ body {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 h1,
@@ -82,6 +85,7 @@ p {
 #mainNav {
   background-color: rgba(47, 23, 15, 0.9);
   font-family: 'Raleway';
+  flex-shrink: 0;
 }
 
 #mainNav .navbar-brand {
@@ -262,6 +266,10 @@ p {
   border-color: #df902a;
 }
 
+.content-wrapper {
+  flex-grow: 1; /* Allow the content wrapper to grow and take up available space */
+}
+
 .font-weight-light {
   font-weight: 100 !important;
 }
@@ -292,6 +300,10 @@ a.link:hover{
   font-size: 16px !important;
   font-weight: 400 !important;
   line-height: 28px !important;
+}
+
+footer.footer {
+  flex-shrink: 0;
 }
 
 ul.errorlist{
