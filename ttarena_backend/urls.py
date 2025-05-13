@@ -22,11 +22,19 @@ from overview import views as overview_views
 from django.conf import settings
 
 from core.views import custom_login_view, custom_logout_view, register_view
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('accounts/login/', custom_login_view, name='login'),
     path('accounts/logout/', custom_logout_view, name='logout'),
     path('accounts/register/', register_view, name='register'),
+
+    path('accounts/password_reset/', auth_views.PasswordResetView.as_view(template_name='registration/password_reset_form.html'), name='password_reset'),
+    path('accounts/password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='registration/password_reset_done.html'), name='password_reset_done'),
+    path('accounts/reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='registration/password_reset_confirm.html'), name='password_reset_confirm'),
+    path('accounts/reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='registration/password_reset_complete.html'), name='password_reset_complete'),
+
+
     path('', include('core.urls')),
     path('admin/', admin.site.urls),
 ]
