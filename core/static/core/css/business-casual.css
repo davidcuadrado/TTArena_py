@@ -267,7 +267,8 @@ p {
 }
 
 .content-wrapper {
-  flex-grow: 1; /* Allow the content wrapper to grow and take up available space */
+  flex-grow: 1;
+  min-height: calc(100vh - 100px - 200px);
 }
 
 .font-weight-light {
