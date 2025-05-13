@@ -21,7 +21,7 @@ from overview import views as overview_views
 
 from django.conf import settings
 
-from core.views import custom_login_view, custom_logout_view, register_view
+from core.views import custom_login_view, custom_logout_view, register_view, profile_view
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
