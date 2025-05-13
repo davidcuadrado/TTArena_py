@@ -1,0 +1,34 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+<section class="page-section clearfix">
+    <div class="container">
+        <div class="intro">
+            <div class="intro-text left-0 bg-faded p-5 rounded">
+                <h2 class="section-heading mb-4">
+                    <span class="section-heading-upper">Welcome Back</span>
+                    <span class="section-heading-lower">Log In</span>
+                </h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{ form.username.label_tag }}
+                        {{ form.username }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.password.label_tag }}
+                        {{ form.password }}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Log In</button>
+                </form>
+                <p class="mb-3">
+                    <a href="#">Forgot your password?</a> {# Placeholder URL #}
+                </p>
+                <p>
+                    Don't have an account? <a href="#">Sign up here</a>. {# Placeholder URL #}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
