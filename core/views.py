@@ -3,6 +3,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib import messages
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
 
 from .forms import CustomAuthenticationForm, CustomUserCreationForm
 
@@ -59,3 +60,10 @@ def register_view(request):
     else:
         form = CustomUserCreationForm()
     return render(request, "registration/register.html", {"form": form})
+
+
+
+@login_required
+def profile_view(request):
+    user = request.user
+    return render(request, 'registration/profile.html', {'user': user})
