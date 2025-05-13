@@ -1,0 +1,25 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+<section class="page-section clearfix">
+    <div class="container">
+        <div class="intro">
+            <div class="intro-text left-0 bg-faded p-5 rounded">
+                <h2 class="section-heading mb-4">
+                    <span class="section-heading-upper">Join Us</span>
+                    <span class="section-heading-lower">Register</span>
+                </h2>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </form>
+                <p class="mt-3">
+                    Already have an account? <a href="{% url 'login' %}">Log in here</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

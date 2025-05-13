@@ -1,9 +1,10 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth import login, authenticate, logout
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib import messages
+from django.urls import reverse_lazy
 
-from .forms import CustomAuthenticationForm
+from .forms import CustomAuthenticationForm, CustomUserCreationForm
 
 
 def home(request):
@@ -34,7 +35,6 @@ def custom_login_view(request):
             if user is not None:
                 login(request, user)
                 messages.success(request, f"Welcome back, {username}!")
-                # Redirect to a success page - you can change 'home' to your desired page
                 return redirect('home')
             else:
                 messages.error(request, "Invalid username or password.")
@@ -45,5 +45,17 @@ def custom_login_view(request):
 def custom_logout_view(request):
     logout(request)
     messages.info(request, "You have successfully logged out.")
-    # Redirect to a logged out page - you can change 'home' to your desired page
     return redirect('home')
+
+def register_view(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            messages.success(request, "Registration successful.")
+            return redirect('home')
+        messages.error(request, "Unsuccessful registration. Invalid information.")
+    else:
+        form = CustomUserCreationForm()
+    return render(request, "registration/register.html", {"form": form})

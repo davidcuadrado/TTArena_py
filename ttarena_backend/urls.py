@@ -21,11 +21,12 @@ from overview import views as overview_views
 
 from django.conf import settings
 
-from core.views import custom_login_view, custom_logout_view
+from core.views import custom_login_view, custom_logout_view, register_view
 
 urlpatterns = [
-    path('accounts/login/', custom_login_view, name='login'), # Add this line
-    path('accounts/logout/', custom_logout_view, name='logout'), # Add this line
+    path('accounts/login/', custom_login_view, name='login'),
+    path('accounts/logout/', custom_logout_view, name='logout'),
+    path('accounts/register/', register_view, name='register'),
     path('', include('core.urls')),
     path('admin/', admin.site.urls),
 ]
