@@ -11,4 +11,5 @@ python -m pip install Pillow
 python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
+pip install django-ckeditor
 ---
