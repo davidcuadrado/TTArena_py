@@ -14,9 +14,6 @@ def home(request):
 def play(request):
     return render(request, "core/play.html")
 
-def blog(request):
-    return render(request, "core/blog.html")
-
 def about(request):
     return render(request, "core/about.html")
 

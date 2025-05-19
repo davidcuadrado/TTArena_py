@@ -7,7 +7,6 @@ from services import views as services_views
 urlpatterns = [
     path('', core_views.home, name="home"),
     path('play/', core_views.play, name="play"),
-    path('blog/', core_views.blog, name='blog'),
     path('about/', core_views.about, name="about"),
     path('overview/', overview_views.overview, name="overview"),
     path('contact/', core_views.contact, name="contact"),

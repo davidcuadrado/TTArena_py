@@ -40,6 +40,7 @@ urlpatterns = [
 
 
     path('', include('core.urls')),
+    path('blog/', include('blog.urls')),
     path('services/', include('services.urls')),
     path('admin/', admin.site.urls),
 ]
