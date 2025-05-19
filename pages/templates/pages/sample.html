@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %}Muestra{% endblock %}
+{% block title %}{{page.title}}{% endblock %}
 
 {% block content %}
 <section class="page-section about-heading">
@@ -17,7 +17,7 @@
             <div class="section-content">
               {{page.content|linebreaks}}
               {% if user.is_authenticated %}
-                <p><a href="{% url 'admin:pages_page_change' page.id %}">Editar</a></p>
+                <p><a href="{% url 'admin:pages_page_change' page.id %}">Edit</a></p>
               {% endif %}
             </div>
           </div>
