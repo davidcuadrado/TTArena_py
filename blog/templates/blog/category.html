@@ -5,7 +5,7 @@
 {% block title %}Blog{% endblock %}
 
 {% block content %}
-{% for posts in posts_list %}
+{% for post in category_retrieved.get_posts.all %}
   <section class="page-section cta">
     <div class="container">
       <div class="row">
@@ -37,6 +37,5 @@
   </section>
 {% endfor %}
 {% endblock %}
-
 
     

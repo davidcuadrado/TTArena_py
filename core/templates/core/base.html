@@ -44,22 +44,22 @@
             <li class="nav-item {% if request.path == '/' %}active{% endif %} px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="{% url 'home' %}">Home</a>
             </li>
-            <li class="nav-item {% if request.path == '/play/' %}active{% endif %} px-lg-4">
+            <li class="nav-item {% if request.path|slice:':6' == '/play/' %}active{% endif %} px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="{% url 'play' %}">Play</a>
             </li>
-            <li class="nav-item {% if request.path == '/services/' %}active{% endif %} px-lg-4">
+            <li class="nav-item {% if request.path|slice:':10' == '/services/' %}active{% endif %} px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="{% url 'services' %}">Services</a>
             </li>
-            <li class="nav-item {% if request.path == '/overview/' %}active{% endif %} px-lg-4">
+            <li class="nav-item {% if request.path|slice:':10' == '/overview/' %}active{% endif %} px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="{% url 'overview' %}">Overview</a>
             </li>
-            <li class="nav-item {% if request.path == '/contact/' %}active{% endif %} px-lg-4">
+            <li class="nav-item {% if request.path|slice:':9' == '/contact/' %}active{% endif %} px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="{% url 'contact' %}">Contact</a>
             </li>
-            <li class="nav-item {% if request.path == '/blog/' %}active{% endif %} px-lg-4">
+            <li class="nav-item {% if request.path|slice:':6' == '/blog/' %}active{% endif %} px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="{% url 'blog' %}">Blog</a>
             </li>
-            <li class="nav-item {% if request.path == '/about/' %}active{% endif %} px-lg-4">
+            <li class="nav-item {% if request.path|slice:':7' == '/about/' %}active{% endif %} px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="{% url 'about' %}">About</a>
             </li>
 
