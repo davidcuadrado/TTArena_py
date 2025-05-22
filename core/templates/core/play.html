@@ -1,50 +1,177 @@
-{% extends 'core/base.html' %}
-
+{% extends "core/base.html" %}
 {% load static %}
 
-{% block title %}Play{% endblock %}
+{% block title %}Jugar{% endblock %}
 
 {% block content %}
-<section class="page-section cta">
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-9 mx-auto">
-        <div class="cta-inner text-center rounded">
-          <h2 class="section-heading mb-5">
-            <span class="section-heading-upper">Play TT Arena</span>
-            <span class="section-heading-lower">Wait! We are still building it, so no games available at the moment</span>
-          </h2>
-          <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
-            <li class="list-unstyled-item list-hours-item d-flex">
-              Solo 3v3 Arena
-              <span class="ml-auto">Work in progress</span>
-            </li>
-            <li class="list-unstyled-item list-hours-item d-flex">
-              Premade 3v3 Arena
-              <span class="ml-auto">Work in progress</span>
-            </li>
-            <li class="list-unstyled-item list-hours-item d-flex">
-              Solo 6v6 Battleground
-              <span class="ml-auto">Work in progress</span>
-            </li>
-          </ul>
-          <p class="address mb-5">
-            <em>
-              <strong>Sorry for trouble!</strong>
-              <br>
-              Keep posted about new features
-            </em>
-          </p>
-          <p class="mb-0">
-            <small>
-              <em>We will try to build it fast</em>
-            </small>
-            <br>
-            See you around!
-          </p>
+<section class="page-section clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center mb-5">
+                <h2 class="section-heading">
+                    <span class="section-heading-upper">Entra en la arena</span>
+                    <span class="section-heading-lower">¡Hora de jugar!</span>
+                </h2>
+            </div>
         </div>
-      </div>
+        
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 shadow rounded transition">
+                    <div class="card-header text-center py-3">
+                        <h4 class="fw-light my-2">Partida rápida</h4>
+                    </div>
+                    <div class="card-body text-center">
+                        <i class="fa-solid fa-bolt fa-4x text-primary mb-4"></i>
+                        <p>Únete a una partida rápida contra otro jugador aleatorio y pon a prueba tus habilidades.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 text-center p-4">
+                        <a href="#" class="btn btn-primary btn-lg">Jugar ahora</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 shadow rounded transition">
+                    <div class="card-header text-center py-3">
+                        <h4 class="fw-light my-2">Partida personalizada</h4>
+                    </div>
+                    <div class="card-body text-center">
+                        <i class="fa-solid fa-chess-board fa-4x text-primary mb-4"></i>
+                        <p>Crea una partida con tus propias reglas e invita a tus amigos a jugar contigo.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 text-center p-4">
+                        <a href="#" class="btn btn-primary btn-lg">Crear partida</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 shadow rounded transition">
+                    <div class="card-header text-center py-3">
+                        <h4 class="fw-light my-2">Torneo</h4>
+                    </div>
+                    <div class="card-body text-center">
+                        <i class="fa-solid fa-trophy fa-4x text-primary mb-4"></i>
+                        <p>Participa en torneos oficiales y compite por premios y reconocimiento en la comunidad.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 text-center p-4">
+                        <a href="#" class="btn btn-primary btn-lg">Ver torneos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-lg-8">
+                <div class="card shadow rounded mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h4 class="fw-light my-2">Partidas activas</h4>
+                        <span class="badge bg-primary rounded-pill">0</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="text-center py-5">
+                            <i class="fa-solid fa-dice-d20 fa-3x text-muted mb-3"></i>
+                            <p class="text-muted">No tienes partidas activas en este momento</p>
+                            <a href="#" class="btn btn-outline-primary mt-2">Buscar partida</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card shadow rounded mb-4">
+                    <div class="card-header">
+                        <h4 class="fw-light my-2">Jugadores online</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="d-flex align-items-center">
+                                <div class="avatar-circle-sm me-2">
+                                    <span class="avatar-initials-sm">A</span>
+                                </div>
+                                <span>AnonymousPlayer</span>
+                            </div>
+                            <span class="badge bg-success rounded-pill">Online</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="d-flex align-items-center">
+                                <div class="avatar-circle-sm me-2">
+                                    <span class="avatar-initials-sm">G</span>
+                                </div>
+                                <span>GameMaster</span>
+                            </div>
+                            <span class="badge bg-success rounded-pill">Online</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <div class="avatar-circle-sm me-2">
+                                    <span class="avatar-initials-sm">T</span>
+                                </div>
+                                <span>TTArenaAdmin</span>
+                            </div>
+                            <span class="badge bg-success rounded-pill">Online</span>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="#" class="link">Ver todos los jugadores</a>
+                    </div>
+                </div>
+                
+                <div class="card shadow rounded">
+                    <div class="card-header">
+                        <h4 class="fw-light my-2">Ranking</h4>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="list-group list-group-flush">
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="badge bg-warning rounded-pill me-2">1</span>
+                                    <span>ProPlayer1</span>
+                                </div>
+                                <span class="badge bg-primary rounded-pill">1500</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="badge bg-secondary rounded-pill me-2">2</span>
+                                    <span>ArenaChamp</span>
+                                </div>
+                                <span class="badge bg-primary rounded-pill">1450</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="badge bg-secondary rounded-pill me-2">3</span>
+                                    <span>TTMaster</span>
+                                </div>
+                                <span class="badge bg-primary rounded-pill">1400</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="#" class="link">Ver ranking completo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
+
+<style>
+.avatar-circle-sm {
+    width: 32px;
+    height: 32px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-initials-sm {
+    font-size: 14px;
+    color: white;
+    font-family: var(--font-heading);
+    font-weight: bold;
+}
+</style>
 {% endblock %}

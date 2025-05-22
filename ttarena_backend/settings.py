@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'services.apps.ServicesConfig',
     'social.apps.SocialConfig',
+    'authentication.apps.AuthenticationConfig',  # Nueva app de autenticación
 ]
 
 MIDDLEWARE = [
@@ -101,6 +102,8 @@ WSGI_APPLICATION = 'ttarena_backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# Configuración original de MySQL (comentada temporalmente para pruebas)
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
@@ -112,6 +115,15 @@ DATABASES = {
     }
 }
 
+"""
+# Configuración temporal de SQLite para pruebas
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+"""
 
 
 # Password validation
@@ -136,7 +148,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'  # Cambiado a español
 
 TIME_ZONE = 'UTC'
 
@@ -158,6 +170,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Configuración de autenticación
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
 
 #Ckeditor
 CKEDITOR_CONFIGS = {

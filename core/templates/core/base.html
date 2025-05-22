@@ -5,18 +5,18 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="TTArena - Online Tabletop WoW Arena">
+    <meta name="author" content="TTArena Team">
 
     <title>{% block title %}{% endblock %} | TT Arena</title>
 
     {% load static %}
 
-    <!-- Bootstrap -->
+    <!-- Bootstrap 5 -->
     <link href="{% static 'core/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
-    <!-- Fuentes -->
-    <link href="{% static 'core/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <!-- Font Awesome 6 -->
+    <link href="{% static 'core/vendor/font-awesome/css/all.min.css' %}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
 
@@ -35,8 +35,8 @@
     <!-- Navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
       <div class="container">
-        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="{% url 'home' %}">TT Arena</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand text-uppercase text-expanded fw-bold d-lg-none" href="{% url 'home' %}">TT Arena</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -62,7 +62,22 @@
             <li class="nav-item {% if request.path|slice:':7' == '/about/' %}active{% endif %} px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="{% url 'about' %}">About</a>
             </li>
-
+            <!-- Menú de usuario -->
+            <li class="nav-item dropdown">
+              {% if user.is_authenticated %}
+                <a class="nav-link dropdown-toggle text-uppercase text-expanded" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{ user.username }}
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                  <li><a class="dropdown-item" href="#">Perfil</a></li>
+                  <li><a class="dropdown-item" href="#">Cambiar contraseña</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+                </ul>
+              {% else %}
+                <a class="nav-link text-uppercase text-expanded" href="#">Iniciar sesión</a>
+              {% endif %}
+            </li>
           </ul>
         </div>
       </div>
@@ -79,32 +94,32 @@
             {% if LINK_TWITTER %}
                 <a href="{{LINK_TWITTER}}" class="link">
                   <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                    <i class="fa-solid fa-circle fa-stack-2x"></i>
+                    <i class="fa-brands fa-twitter fa-stack-1x fa-inverse"></i>
                   </span>
                 </a>
             {% endif %}
             {% if LINK_FACEBOOK %}
 	        <a href="{{LINK_FACEBOOK}}" class="link">
 	          <span class="fa-stack fa-lg">
-	            <i class="fa fa-circle fa-stack-2x"></i>
-	            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+	            <i class="fa-solid fa-circle fa-stack-2x"></i>
+	            <i class="fa-brands fa-facebook-f fa-stack-1x fa-inverse"></i>
 	          </span>
 	        </a>
             {% endif %}
             {% if LINK_INSTAGRAM %}
 	        <a href="{{LINK_INSTAGRAM}}" class="link">
 	          <span class="fa-stack fa-lg">
-	            <i class="fa fa-circle fa-stack-2x"></i>
-	            <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+	            <i class="fa-solid fa-circle fa-stack-2x"></i>
+	            <i class="fa-brands fa-instagram fa-stack-1x fa-inverse"></i>
 	          </span>
 	        </a>
             {% endif %}
             {% if LINK_GITHUB %}
 	        <a href="{{LINK_GITHUB}}" class="link">
 	          <span class="fa-stack fa-lg">
-	            <i class="fa fa-circle fa-stack-2x"></i>
-	            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+	            <i class="fa-solid fa-circle fa-stack-2x"></i>
+	            <i class="fa-brands fa-github fa-stack-1x fa-inverse"></i>
 	          </span>
 	        </a>
             {% endif %}
@@ -120,8 +135,7 @@
       </div>
 	</footer>
 
-    <!-- Bootstrap -->
-    <script src="{% static 'core/vendor/jquery/jquery.min.js' %}"></script>
+    <!-- Bootstrap 5 JS con Popper -->
     <script src="{% static 'core/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
   </body>

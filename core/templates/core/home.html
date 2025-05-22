@@ -1,46 +1,103 @@
-{% extends 'core/base.html' %}
-
+{% extends "core/base.html" %}
 {% load static %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Inicio{% endblock %}
 
 {% block content %}
-
-<!-- Cabecera -->
 <section class="page-section clearfix">
-  <div class="container">
-    <div class="intro">
-      <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static 'core/img/home-bg.jpg' %}" alt="">
-      <div class="intro-text left-0 text-center bg-faded p-5 rounded">
-        <h2 class="section-heading mb-4">
-          <span class="section-heading-upper">The Tabletop WoW Arena Project</span>
-          <span class="section-heading-lower">Join the battle</span>
-        </h2>
-        <p class="mb-3">Welcome to TT Arena – a turn-based, tactical online game inspired by the epic battles of World of Warcraft and the strategic depth of tabletop RPGs.
-          Jump into arena matches where timing, positioning and clever use of abilities determine victory.
-        </p>
-        <div class="intro-button mx-auto">
-          <a class="btn btn-primary btn-xl" href="{% url 'play' %}">Play</a>
+    <div class="container">
+        <div class="intro fade-in">
+            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded shadow" src="{% static 'core/img/intro.jpg' %}" alt="Imagen de introducción">
+            <div class="intro-text left-0 bg-faded p-5 rounded shadow">
+                <h2 class="section-heading mb-4">
+                    <span class="section-heading-upper">Experiencia de juego única</span>
+                    <span class="section-heading-lower">TT Arena</span>
+                </h2>
+                <p class="mb-3">
+                    Bienvenido a TT Arena, la plataforma definitiva para jugar World of Warcraft Arena en formato de tablero. Disfruta de toda la estrategia y emoción del juego original en un formato accesible para todos.
+                </p>
+                <div class="intro-button mx-auto">
+                    <a class="btn btn-primary btn-xl" href="{% url 'play' %}">¡Juega ahora!</a>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
-<!-- Mensaje -->
 <section class="page-section cta">
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-9 mx-auto">
-        <div class="cta-inner text-center rounded">
-          <h2 class="section-heading mb-4">
-            <span class="section-heading-upper">Arena 3v3 Matches</span>
-            <span class="section-heading-lower">Join solo or as a team</span>
-          </h2>
-          <p class="mb-0">Get matched with other players or join as a team. Fight for victory and glory.</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <div class="cta-inner text-center rounded">
+                    <h2 class="section-heading mb-4">
+                        <span class="section-heading-upper">Nuestra promesa</span>
+                        <span class="section-heading-lower">Para ti</span>
+                    </h2>
+                    <p class="mb-0">Cuando entras en TT Arena, estamos dedicados a ofrecerte el mejor servicio posible. Desde la facilidad de uso de nuestra plataforma hasta la atención personalizada, trabajamos para que tu experiencia sea excepcional. ¡Esa es nuestra promesa para ti!</p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</section>
+
+<section class="page-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow transition">
+                    <div class="card-body text-center">
+                        <i class="fa-solid fa-gamepad fa-3x text-primary mb-3"></i>
+                        <h4 class="card-title">Juego estratégico</h4>
+                        <p class="card-text">Disfruta de un juego de estrategia por turnos basado en el popular World of Warcraft Arena.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 text-center">
+                        <a href="#" class="btn btn-outline-primary">Más información</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow transition">
+                    <div class="card-body text-center">
+                        <i class="fa-solid fa-users fa-3x text-primary mb-3"></i>
+                        <h4 class="card-title">Comunidad activa</h4>
+                        <p class="card-text">Únete a una comunidad de jugadores apasionados y participa en torneos regulares.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 text-center">
+                        <a href="#" class="btn btn-outline-primary">Unirse ahora</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow transition">
+                    <div class="card-body text-center">
+                        <i class="fa-solid fa-trophy fa-3x text-primary mb-3"></i>
+                        <h4 class="card-title">Competiciones</h4>
+                        <p class="card-text">Demuestra tu habilidad en nuestras competiciones y gana premios exclusivos.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 text-center">
+                        <a href="#" class="btn btn-outline-primary">Ver torneos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page-section bg-faded rounded shadow-sm my-5 py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="section-heading">
+                    <span class="section-heading-upper">Últimas noticias</span>
+                </h2>
+                <hr class="divider my-4">
+                <div class="alert alert-primary" role="alert">
+                    <i class="fa-solid fa-newspaper me-2"></i>
+                    <strong>¡Nueva versión disponible!</strong> Hemos actualizado la plataforma con nuevas características y mejoras visuales.
+                </div>
+                <a href="{% url 'blog' %}" class="btn btn-primary mt-3">Ver todas las noticias</a>
+            </div>
+        </div>
+    </div>
 </section>
 {% endblock %}

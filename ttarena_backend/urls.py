@@ -21,24 +21,32 @@ from overview import views as overview_views
 from pages import views as pages_views
 
 from django.conf import settings
-
-from core.views import custom_login_view, custom_logout_view, register_view, profile_view
 from django.contrib.auth import views as auth_views
 
-urlpatterns = [
-    path('accounts/login/', custom_login_view, name='login'),
-    path('accounts/logout/', custom_logout_view, name='logout'),
-    path('accounts/register/', register_view, name='register'),
-    path('accounts/profile/', profile_view, name='profile'),
+# Rutas antiguas de autenticación comentadas
+# from core.views import custom_login_view, custom_logout_view, register_view, profile_view
 
+urlpatterns = [
+    # Rutas de autenticación centralizadas en la nueva app
+    path('accounts/', include('authentication.urls')),
+    
+    # Rutas antiguas de autenticación comentadas
+    # path('accounts/login/', custom_login_view, name='login'),
+    # path('accounts/logout/', custom_logout_view, name='logout'),
+    # path('accounts/register/', register_view, name='register'),
+    # path('accounts/profile/', profile_view, name='profile'),
+
+    # Rutas de restablecimiento de contraseña
     path('accounts/password_reset/', auth_views.PasswordResetView.as_view(template_name='registration/password_reset_form.html'), name='password_reset'),
     path('accounts/password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='registration/password_reset_done.html'), name='password_reset_done'),
     path('accounts/reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='registration/password_reset_confirm.html'), name='password_reset_confirm'),
     path('accounts/reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='registration/password_reset_complete.html'), name='password_reset_complete'),
 
+    # Rutas de cambio de contraseña
     path('accounts/password_change/', auth_views.PasswordChangeView.as_view(template_name='registration/password_change_form.html'), name='password_change'),
     path('accounts/password_change/done/', auth_views.PasswordChangeDoneView.as_view(template_name='registration/password_change_done.html'), name='password_change_done'),
 
+    # Rutas de las demás apps
     path('', include('core.urls')),
     path('blog/', include('blog.urls')),
     path('page/', include('pages.urls')),

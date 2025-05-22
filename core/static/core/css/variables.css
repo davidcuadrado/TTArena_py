@@ -1,0 +1,32 @@
+:root {
+  /* Colores principales */
+  --primary-color: #5a2e2e;
+  --secondary-color: #cec6a6;
+  --accent-color: #f05f40;
+  --text-color: #212529;
+  --light-text: #f8f9fa;
+  --dark-bg: #343a40;
+  
+  /* Espaciados */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 3rem;
+  
+  /* Tipografía */
+  --font-heading: 'Raleway', sans-serif;
+  --font-body: 'Lora', serif;
+  --font-size-base: 1rem;
+  --line-height-base: 1.5;
+  
+  /* Bordes y sombras */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 1rem;
+  --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  
+  /* Transiciones */
+  --transition-speed: 0.3s;
+  --transition-timing: ease-in-out;
+}

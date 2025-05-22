@@ -1,28 +1,186 @@
-{% extends 'core/base.html' %}
-
+{% extends "core/base.html" %}
 {% load static %}
 
-{% block title %}About{% endblock %}
+{% block title %}Acerca de{% endblock %}
 
 {% block content %}
 <section class="page-section about-heading">
-  <div class="container">
-    <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{% static 'core/img/about.jpg' %}" alt="">
-    <div class="about-heading-content">
-      <div class="row">
-        <div class="col-xl-9 col-lg-10 mx-auto">
-          <div class="bg-faded rounded p-5">
-            <h2 class="section-heading mb-4">
-              <span class="section-heading-upper">About TT Arena</span>
-              <span class="section-heading-lower">Our project</span>
-            </h2>
-            <p>Welcome to TT Arena – a turn-based, tactical online game inspired by the epic battles of World of Warcraft and the strategic depth of tabletop RPGs. Jump into arena matches where timing, positioning and clever use of abilities determine victory.</p>
-            <p>In TT Arena, players control custom-built heroes from a variety of classes and specializations, each with unique abilities, strengths, and synergies. Combat unfolds on detailed battle maps, where every turn matters and teamwork is key. Whether you are battling on the 3v3 arena or jump into the battlegrounds, success requires both strategic foresight and quick adaptation</p>
-            <p>Craft your character. Choose your talents. Master your tactics. Enter the arena and fight for glory.</p>
-          </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center mb-5">
+                <h2 class="section-heading">
+                    <span class="section-heading-upper">Nuestra historia</span>
+                    <span class="section-heading-lower">Sobre TT Arena</span>
+                </h2>
+            </div>
         </div>
-      </div>
+        
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <img class="img-fluid rounded shadow" src="{% static 'core/img/about.jpg' %}" alt="Imagen sobre nosotros">
+            </div>
+            <div class="col-lg-6">
+                <div class="bg-faded rounded p-5 shadow">
+                    <p class="mb-4">
+                        TT Arena nació de la pasión por los juegos de estrategia y World of Warcraft. Fundada en 2023 por un grupo de entusiastas jugadores, nuestra plataforma busca traer la emoción de las arenas de WoW a un formato de tablero accesible para todos.
+                    </p>
+                    <p class="mb-4">
+                        Nuestro equipo está formado por desarrolladores, diseñadores y jugadores apasionados que trabajan constantemente para mejorar la experiencia de juego y crear una comunidad vibrante y acogedora.
+                    </p>
+                    <p>
+                        En TT Arena creemos que los juegos son más que simple entretenimiento: son una forma de conectar personas, fomentar el pensamiento estratégico y crear amistades duraderas.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-5">
+            <div class="col-lg-12">
+                <div class="bg-faded rounded p-5 shadow">
+                    <h3 class="section-heading mb-4">
+                        <span class="section-heading-upper">Nuestro equipo</span>
+                    </h3>
+                    
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card border-0 shadow-sm text-center h-100 transition">
+                                <div class="card-body">
+                                    <div class="team-avatar mx-auto mb-4">
+                                        <i class="fa-solid fa-user fa-2x"></i>
+                                    </div>
+                                    <h4>Alex Rodríguez</h4>
+                                    <p class="text-muted">Fundador & CEO</p>
+                                    <p class="small">Apasionado jugador de WoW desde Vanilla y visionario detrás de TT Arena.</p>
+                                    <div class="social-icons">
+                                        <a href="#" class="me-2"><i class="fa-brands fa-twitter"></i></a>
+                                        <a href="#" class="me-2"><i class="fa-brands fa-linkedin"></i></a>
+                                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 mb-4">
+                            <div class="card border-0 shadow-sm text-center h-100 transition">
+                                <div class="card-body">
+                                    <div class="team-avatar mx-auto mb-4">
+                                        <i class="fa-solid fa-user fa-2x"></i>
+                                    </div>
+                                    <h4>María González</h4>
+                                    <p class="text-muted">Directora de Desarrollo</p>
+                                    <p class="small">Desarrolladora full-stack con experiencia en juegos online y sistemas en tiempo real.</p>
+                                    <div class="social-icons">
+                                        <a href="#" class="me-2"><i class="fa-brands fa-twitter"></i></a>
+                                        <a href="#" class="me-2"><i class="fa-brands fa-linkedin"></i></a>
+                                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 mb-4">
+                            <div class="card border-0 shadow-sm text-center h-100 transition">
+                                <div class="card-body">
+                                    <div class="team-avatar mx-auto mb-4">
+                                        <i class="fa-solid fa-user fa-2x"></i>
+                                    </div>
+                                    <h4>Carlos Martínez</h4>
+                                    <p class="text-muted">Director Creativo</p>
+                                    <p class="small">Diseñador de juegos con más de 10 años de experiencia en la industria.</p>
+                                    <div class="social-icons">
+                                        <a href="#" class="me-2"><i class="fa-brands fa-twitter"></i></a>
+                                        <a href="#" class="me-2"><i class="fa-brands fa-linkedin"></i></a>
+                                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-5">
+            <div class="col-lg-12">
+                <div class="bg-faded rounded p-5 shadow">
+                    <h3 class="section-heading mb-4">
+                        <span class="section-heading-upper">Nuestra misión</span>
+                    </h3>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fa-solid fa-chess-knight fa-2x text-primary"></i>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h4>Estrategia accesible</h4>
+                                    <p>Hacer que los juegos de estrategia complejos sean accesibles para jugadores de todos los niveles.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fa-solid fa-users fa-2x text-primary"></i>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h4>Comunidad inclusiva</h4>
+                                    <p>Crear un espacio seguro y acogedor para jugadores de todos los orígenes y habilidades.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fa-solid fa-code fa-2x text-primary"></i>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h4>Innovación constante</h4>
+                                    <p>Mejorar continuamente nuestra plataforma con nuevas características y mecánicas de juego.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fa-solid fa-trophy fa-2x text-primary"></i>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h4>Competición justa</h4>
+                                    <p>Promover un ambiente competitivo saludable basado en la habilidad y la estrategia.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
+
+<style>
+.team-avatar {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(240, 95, 64, 0.1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--accent-color);
+}
+
+.social-icons a {
+    color: var(--dark-bg);
+    transition: color var(--transition-speed) var(--transition-timing);
+}
+
+.social-icons a:hover {
+    color: var(--accent-color);
+}
+</style>
 {% endblock %}

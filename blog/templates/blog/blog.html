@@ -1,42 +1,292 @@
-{% extends 'core/base.html' %}
-
+{% extends "core/base.html" %}
 {% load static %}
 
 {% block title %}Blog{% endblock %}
 
 {% block content %}
-{% for posts in posts_list %}
-  <section class="page-section cta">
+<section class="page-section clearfix">
     <div class="container">
-      <div class="row">
-        <div class="col-xl-9 mx-auto">
-          <div class="cta-innerv text-center rounded">
-            <h2 class="section-heading mb-5">
-              <span class="section-heading-upper">{{post.published|date:"SHORT_DATE_FORMAT"}}</span>
-              <span class="section-heading-lower">{{post.title}}</span>
-            </h2>
-            <p class="mb-0">
-              <img class="mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{{post.image.url}}" alt="">
-            </p>
-            <p class="mb-0 mbt">
-              {{post.content|linebreaks}}
-            </p>
-            <p class="mb-0 mbt">
-              <span class="section-heading-under">Published by <em><b>{{post.author}}</b></em> at <em>
-                {% for category in post.categories.all %}
-                <a href="{% url 'category' category.id %}" class="link">{{category.name}}</a>{%if not forloop.last %}, {% endif %}
-                {% endfor %}
-              </em>
-              </span>
-            </p>
-          </div>
-
+        <div class="row">
+            <div class="col-lg-12 text-center mb-5">
+                <h2 class="section-heading">
+                    <span class="section-heading-upper">Noticias y actualizaciones</span>
+                    <span class="section-heading-lower">Blog</span>
+                </h2>
+            </div>
         </div>
-      </div>
+        
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Filtros y búsqueda -->
+                <div class="card shadow rounded mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-8 mb-3 mb-md-0">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Buscar artículos...">
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="fa-solid fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-select">
+                                    <option selected>Todas las categorías</option>
+                                    <option>Actualizaciones</option>
+                                    <option>Guías</option>
+                                    <option>Torneos</option>
+                                    <option>Comunidad</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Artículos -->
+                <div class="row" id="blog-posts">
+                    {% for post in posts %}
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 shadow rounded transition">
+                            {% if post.image %}
+                            <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+                            {% else %}
+                            <div class="card-img-placeholder bg-light d-flex align-items-center justify-content-center">
+                                <i class="fa-solid fa-newspaper fa-3x text-muted"></i>
+                            </div>
+                            {% endif %}
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="badge bg-primary">{{ post.categories.first }}</span>
+                                    <small class="text-muted">{{ post.published|date:"d M, Y" }}</small>
+                                </div>
+                                <h4 class="card-title">{{ post.title }}</h4>
+                                <p class="card-text">{{ post.content|striptags|truncatechars:100 }}</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0">
+                                <a href="#" class="btn btn-outline-primary">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="col-12">
+                        <div class="alert alert-info text-center">
+                            <i class="fa-solid fa-info-circle me-2"></i>
+                            No hay artículos disponibles en este momento.
+                        </div>
+                    </div>
+                    {% endfor %}
+                    
+                    <!-- Artículos de ejemplo (eliminar en producción) -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 shadow rounded transition">
+                            <div class="card-img-placeholder bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+                                <i class="fa-solid fa-newspaper fa-3x text-muted"></i>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="badge bg-primary">Actualizaciones</span>
+                                    <small class="text-muted">22 May, 2025</small>
+                                </div>
+                                <h4 class="card-title">Nueva versión disponible</h4>
+                                <p class="card-text">Hemos lanzado una nueva versión de TT Arena con mejoras visuales y nuevas funcionalidades. ¡Descubre todo lo que hemos preparado para ti!</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0">
+                                <a href="#" class="btn btn-outline-primary">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 shadow rounded transition">
+                            <div class="card-img-placeholder bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+                                <i class="fa-solid fa-newspaper fa-3x text-muted"></i>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="badge bg-primary">Torneos</span>
+                                    <small class="text-muted">20 May, 2025</small>
+                                </div>
+                                <h4 class="card-title">Torneo de verano 2025</h4>
+                                <p class="card-text">Prepárate para el gran torneo de verano. Inscripciones abiertas hasta el 15 de junio. ¡Grandes premios para los ganadores!</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0">
+                                <a href="#" class="btn btn-outline-primary">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 shadow rounded transition">
+                            <div class="card-img-placeholder bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+                                <i class="fa-solid fa-newspaper fa-3x text-muted"></i>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="badge bg-primary">Guías</span>
+                                    <small class="text-muted">18 May, 2025</small>
+                                </div>
+                                <h4 class="card-title">Guía para principiantes</h4>
+                                <p class="card-text">Todo lo que necesitas saber para empezar a jugar en TT Arena. Estrategias básicas, clases y consejos para tus primeras partidas.</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0">
+                                <a href="#" class="btn btn-outline-primary">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 shadow rounded transition">
+                            <div class="card-img-placeholder bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+                                <i class="fa-solid fa-newspaper fa-3x text-muted"></i>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="badge bg-primary">Comunidad</span>
+                                    <small class="text-muted">15 May, 2025</small>
+                                </div>
+                                <h4 class="card-title">Entrevista con el campeón</h4>
+                                <p class="card-text">Hablamos con el ganador del último torneo sobre sus estrategias, preparación y consejos para los aspirantes.</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0">
+                                <a href="#" class="btn btn-outline-primary">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Paginación -->
+                <nav aria-label="Navegación de páginas" class="my-4">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Siguiente</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="col-lg-4">
+                <!-- Categorías -->
+                <div class="card shadow rounded mb-4">
+                    <div class="card-header">
+                        <h4 class="fw-light my-2">Categorías</h4>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="list-group list-group-flush">
+                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                Todas
+                                <span class="badge bg-primary rounded-pill">12</span>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                Actualizaciones
+                                <span class="badge bg-primary rounded-pill">4</span>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                Guías
+                                <span class="badge bg-primary rounded-pill">3</span>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                Torneos
+                                <span class="badge bg-primary rounded-pill">2</span>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                Comunidad
+                                <span class="badge bg-primary rounded-pill">3</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Artículos populares -->
+                <div class="card shadow rounded mb-4">
+                    <div class="card-header">
+                        <h4 class="fw-light my-2">Artículos populares</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0">
+                                <div class="popular-post-img bg-light d-flex align-items-center justify-content-center">
+                                    <i class="fa-solid fa-star text-muted"></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="mb-1">Guía avanzada de estrategia</h6>
+                                <small class="text-muted">10 May, 2025</small>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0">
+                                <div class="popular-post-img bg-light d-flex align-items-center justify-content-center">
+                                    <i class="fa-solid fa-star text-muted"></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="mb-1">Nuevas clases disponibles</h6>
+                                <small class="text-muted">5 May, 2025</small>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <div class="popular-post-img bg-light d-flex align-items-center justify-content-center">
+                                    <i class="fa-solid fa-star text-muted"></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="mb-1">Resultados del torneo de primavera</h6>
+                                <small class="text-muted">1 May, 2025</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="card shadow rounded">
+                    <div class="card-header">
+                        <h4 class="fw-light my-2">Suscríbete</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>Recibe las últimas noticias y actualizaciones directamente en tu correo.</p>
+                        <form>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="Tu email">
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Suscribirse</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
-{% endfor %}
+</section>
+
+<style>
+.card-img-placeholder {
+    height: 200px;
+}
+
+.popular-post-img {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-link {
+    color: var(--accent-color);
+}
+
+.page-item.active .page-link {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+</style>
 {% endblock %}
-
-
-    

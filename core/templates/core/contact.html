@@ -1,53 +1,248 @@
-{% extends 'core/base.html' %}
-
+{% extends "core/base.html" %}
 {% load static %}
 
-{% block title %}Contact{% endblock %}
+{% block title %}Contacto{% endblock %}
 
 {% block content %}
-<section class="page-section about-heading">
-  <div class="container">
-    <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{% static 'core/img/contact.jpg' %}" alt="">
-    <div class="about-heading-content">
-      <div class="row">
-        <div class="col-xl-9 col-lg-10 mx-auto">
-          <div class="bg-faded rounded p-5">
-            <h2 class="section-heading mb-4">
-              <span class="section-heading-upper">Want to share something?</span>
-              <span class="section-heading-lower">Contact us!</span>
-            </h2>
-            <!-- Formulario de contacto -->
-            <form>
-                <div class="form-group">
-                    <label>Name *</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>E-mail *</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control">
-                    </div>
-                    <ul class="errorlist">
-                        <li>The e-mail is not correct.</li>
-                    </ul>
-                </div>
-                <div class="form-group">
-                    <label>Message *</label>
-                    <div class="input-group">
-                        <textarea class="form-control"></textarea>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <input type="submit" class="btn btn-primary btn-block py-2" value="Send">
-                </div>
-            </form>
-            <!-- Fin formulario de contacto -->
-          </div>
+<section class="page-section clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center mb-5">
+                <h2 class="section-heading">
+                    <span class="section-heading-upper">Estamos aquí para ayudarte</span>
+                    <span class="section-heading-lower">Contacto</span>
+                </h2>
+            </div>
         </div>
-      </div>
+        
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="bg-faded rounded p-5 shadow">
+                    <h3 class="section-heading mb-4">
+                        <span class="section-heading-upper">Envíanos un mensaje</span>
+                    </h3>
+                    
+                    <form class="needs-validation" novalidate>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" placeholder="Tu nombre" required>
+                                    <label for="name">Nombre</label>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa tu nombre.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" placeholder="Tu email" required>
+                                    <label for="email">Email</label>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa un email válido.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="subject" placeholder="Asunto" required>
+                                <label for="subject">Asunto</label>
+                                <div class="invalid-feedback">
+                                    Por favor ingresa un asunto.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="form-floating">
+                                <textarea class="form-control" id="message" placeholder="Tu mensaje" style="height: 150px" required></textarea>
+                                <label for="message">Mensaje</label>
+                                <div class="invalid-feedback">
+                                    Por favor ingresa tu mensaje.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">Enviar mensaje</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="bg-faded rounded p-5 shadow mb-4">
+                    <h3 class="section-heading mb-4">
+                        <span class="section-heading-upper">Información de contacto</span>
+                    </h3>
+                    
+                    <div class="d-flex mb-4">
+                        <div class="flex-shrink-0">
+                            <i class="fa-solid fa-location-dot fa-2x text-primary"></i>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h5>Dirección</h5>
+                            <p>Calle Principal 123, Ciudad, País</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex mb-4">
+                        <div class="flex-shrink-0">
+                            <i class="fa-solid fa-phone fa-2x text-primary"></i>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h5>Teléfono</h5>
+                            <p>+34 123 456 789</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex mb-4">
+                        <div class="flex-shrink-0">
+                            <i class="fa-solid fa-envelope fa-2x text-primary"></i>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h5>Email</h5>
+                            <p>info@ttarena.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex">
+                        <div class="flex-shrink-0">
+                            <i class="fa-solid fa-clock fa-2x text-primary"></i>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h5>Horario de atención</h5>
+                            <p>Lunes a Viernes: 9:00 - 18:00<br>Sábado y Domingo: 10:00 - 14:00</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-faded rounded p-5 shadow">
+                    <h3 class="section-heading mb-4">
+                        <span class="section-heading-upper">Síguenos</span>
+                    </h3>
+                    
+                    <div class="d-flex justify-content-around social-links">
+                        <a href="#" class="social-link">
+                            <i class="fa-brands fa-facebook fa-3x"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fa-brands fa-twitter fa-3x"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fa-brands fa-instagram fa-3x"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fa-brands fa-discord fa-3x"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-5">
+            <div class="col-lg-12">
+                <div class="bg-faded rounded p-5 shadow">
+                    <h3 class="section-heading mb-4 text-center">
+                        <span class="section-heading-upper">Preguntas frecuentes</span>
+                    </h3>
+                    
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    ¿Qué es TT Arena?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    TT Arena es una plataforma de juego que adapta la experiencia de World of Warcraft Arena a un formato de tablero estratégico por turnos, accesible desde tu navegador.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    ¿Es gratuito jugar en TT Arena?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sí, TT Arena es completamente gratuito para jugar. Ofrecemos algunas opciones de personalización premium, pero todas las funcionalidades principales del juego son accesibles sin costo.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    ¿Cómo puedo reportar un problema técnico?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Puedes reportar problemas técnicos a través del formulario de contacto en esta página, o enviando un email directamente a soporte@ttarena.com. Nuestro equipo de soporte responderá en un plazo máximo de 24 horas.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
+
+<style>
+.social-links a {
+    color: var(--dark-bg);
+    transition: color var(--transition-speed) var(--transition-timing);
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: rgba(240, 95, 64, 0.1);
+    color: var(--accent-color);
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(240, 95, 64, 0.25);
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const forms = document.querySelectorAll('.needs-validation');
+    
+    Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            
+            form.classList.add('was-validated');
+        }, false);
+        
+        // Validación en tiempo real
+        const inputs = form.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('blur', () => {
+                if (input.checkValidity()) {
+                    input.classList.remove('is-invalid');
+                    input.classList.add('is-valid');
+                } else {
+                    input.classList.remove('is-valid');
+                    input.classList.add('is-invalid');
+                }
+            });
+        });
+    });
+});
+</script>
 {% endblock %}
